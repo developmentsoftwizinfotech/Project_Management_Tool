@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import { useMutation } from 'react-query';
 import { updateTask } from '../../../utils/api/User/Task';
 
-const UpdateTask = ({taskId,updateList}) => {
+const UpdateTask = ({taskId,updateList,details}) => {
+
+    const formattedStartDate = details.startDate ? new Date(details.startDate).toISOString().substring(0, 10) : '';
+    const formattedEndDate = details.endDate ? new Date(details.endDate).toISOString().substring(0, 10) : '';
 
     const [isOpen, setIsOpen] = useState(false);
     const [ updates, setUpdates ] = useState({
-        startDate : "",
-        endDate : "",
-        completedTime : "",
-        status : ""
+        startDate : formattedStartDate ,
+        endDate : formattedEndDate,
+        completedTime : details ? details.completedTime :  "",
+        status : details ? details.status :  ""
     })
 
     const { mutateAsync : updated } = useMutation('updateTask',updateTask)
@@ -19,7 +22,6 @@ const UpdateTask = ({taskId,updateList}) => {
     }
 
     const updatehandler = () =>{
-        console.log(updates)
         updated({id : taskId,data :updates})
         .then((res)=>{
             setIsOpen(false)
@@ -52,16 +54,16 @@ const UpdateTask = ({taskId,updateList}) => {
                     </button>
                     <div className="p-6 text-center">
                         <div className='flex flex-col items-start pt-5' >
-                            <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
-                            <input type="date" name='startDate' value={updates.startDate} onChange={changeHandler} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="select"  /> 
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
+                            <input type="date" name='startDate' value={updates.startDate} onChange={changeHandler} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="select"  /> 
                         </div>
                         <div className='flex flex-col items-start pt-5' >
-                            <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End Date</label>
-                            <input type="date" name='endDate' value={updates.endDate} onChange={changeHandler} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="select"  /> 
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End Date</label>
+                            <input type="date" name='endDate' value={updates.endDate} onChange={changeHandler} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="select"  /> 
                         </div>
                         <div className='flex flex-col items-start pt-5' >
-                            <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Time(in hours)</label>
-                            <input type="text" name='completedTime' value={updates.completedTime} onChange={changeHandler} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00"  /> 
+                            <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Time(in hours)</label>
+                            <input type="text" name='completedTime' value={updates.completedTime} onChange={changeHandler} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="00"  /> 
                         </div>
                         <div className='flex flex-col items-start pt-5 ml-6' >
                             <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>

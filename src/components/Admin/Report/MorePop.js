@@ -20,7 +20,7 @@ const MorePop = ({data}) => {
                         <span className="sr-only cursor-pointer">Close</span>
                     </button>
                     <div className="p-6 text-center ">
-                            <h1 class="text-3xl font-bold pt-8 lg:pt-0">{data.user[0].userName}</h1>
+                            <h1 className="text-3xl font-bold pt-8 lg:pt-0">{data.user[0].userName}</h1>
                             <p className='mt-5 flex flex-col items-start px-auto'> Task name : {data.taskName} </p>
                             <p className='mt-5 flex flex-col items-start px-auto'> Task type : {data.taskType} </p>
                             <p className='mt-5 flex flex-col items-start px-auto'> Start date : { data.startDate} </p>

@@ -14,7 +14,6 @@ const UserDropdown = ({users,taskId,fetching}) => {
         }
         await details(data)
         .then((res)=>{
-            console.log(res)
             fetching()
         })
         .catch((err)=>{

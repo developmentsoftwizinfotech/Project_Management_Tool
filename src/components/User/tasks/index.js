@@ -11,7 +11,6 @@ const Tasks = () => {
     const { data, refetch : updateList } = useQuery('taskList',taskList.bind(this,id))
 
 
-  console.log(data)
 
   return (
     <>
@@ -80,7 +79,7 @@ const Tasks = () => {
                                             {x.completedTime}hr
                                         </td>
                                         <td className="px-6 py-4">
-                                            <UpdateTask updateList={updateList} taskId={x._id}  />
+                                            <UpdateTask updateList={updateList} taskId={x._id} details={x}  />
                                         </td>
                                     </tr>
                                     ))

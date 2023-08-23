@@ -8,7 +8,6 @@ const Project = () => {
     const navigate = useNavigate();
 
     const { data } = useQuery('projectList',projectList)
-    console.log(data)
 
   return (
     <>

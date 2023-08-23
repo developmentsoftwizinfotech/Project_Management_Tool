@@ -20,7 +20,6 @@ const AddProjects = () => {
     }
 
     const moduleChangeHandler = (moduleIndex,e) =>{
-        console.log(e.target.value)
         const clone = [...modules]
         clone[moduleIndex].moduleName = e.target.value
         setModuleCount(clone)
@@ -28,7 +27,6 @@ const AddProjects = () => {
 
 
     const AddTaskHandler = (moduleIndex) =>{
-        console.log(moduleIndex)
        const clone = [...modules]
        clone[moduleIndex].task.push({
             hour : 0,
@@ -48,7 +46,6 @@ const AddProjects = () => {
         const data = {projectName,modules}
         await details(data)
         .then((res)=>{
-            console.log(res)
             navigate('/project')
         })
         .catch((err)=>{

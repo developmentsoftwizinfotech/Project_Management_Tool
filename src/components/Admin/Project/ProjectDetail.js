@@ -19,7 +19,6 @@ const ProjectDetail = () => {
         }
         taskUser(detail)
     }
-    console.log(data,'datas')
 
   return (
     <div className='flex flex-col justify-start items-start ' >
@@ -77,16 +76,14 @@ const ProjectDetail = () => {
                             <td className="px-6 py-4">
                             {
                                 item?.user[0] ?
-                                <>
                                     <a className="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         <img className="w-6 h-6 mr-2 rounded-full" src={`http://127.0.0.1:8080/uploads/${item?.user[0]?.image}`} alt="image" />
                                         {item?.user[0]?.userName}
                                         <AiFillDelete onClick={()=>removeHanlder(item?.user[0]._id,item?._id)} className='ml-10 cursor-pointer text-lg '  />
                                     </a>
-                                </>
                                 :
                                 <UserDropdown users={users} taskId={item?._id} projectId={data?._id} fetching={fetching} />
-                            }
+                            } 
                             </td>
                             <td className="px-6 py-4">
                                 {item.status}

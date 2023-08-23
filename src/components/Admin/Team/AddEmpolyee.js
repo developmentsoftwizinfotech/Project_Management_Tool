@@ -41,7 +41,6 @@ const AddEmpolyee = ({userListFecth}) => {
         
         await newUserData(newUser)
         .then((res)=>{
-            console.log(res)
             setIsOpen(false)
             userListFecth()
         })

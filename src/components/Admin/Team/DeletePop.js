@@ -13,7 +13,7 @@ const DeletePop = ({user,userListFecth}) => {
             setIsOpen(false)
             userListFecth()
         })
-        .then((err)=>{
+        .catch((err)=>{
             console.log(err)
         })
     }

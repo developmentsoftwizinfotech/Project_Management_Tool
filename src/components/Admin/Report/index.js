@@ -19,7 +19,6 @@ const Report = () => {
     const dateHandler = (e) =>{
         setFilterDate( e.target.value)
     }
-    console.log(data)
 
 
   return (

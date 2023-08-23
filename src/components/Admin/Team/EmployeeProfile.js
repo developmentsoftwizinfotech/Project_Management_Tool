@@ -10,7 +10,6 @@ const EmployeeProfile = () => {
     const {id} = useParams();
 
     const { data } = useQuery('userDetails',userDetails.bind(this,id))
-    console.log(data,'data')
 
   return (
         <main className="profile-page absolute mt-48 -z-10  ">
