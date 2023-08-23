@@ -19,11 +19,10 @@ const Team = () => {
 
 
   useMemo(()=>{
-        const filteredData =  data?.filter(x => x.userName?.includes(search))
+        const filteredData =  data?.filter(x => x.userName?.includes(search ? search : ""))
         setList(filteredData)
   },[search])
     
-
   return (
     <>
 
@@ -78,7 +77,7 @@ const Team = () => {
                 <tbody>
                     {
                         list?.map((x,ind)=>(
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr key={x._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td className="px-6 py-4">
                             {ind + 1}
                             </td>

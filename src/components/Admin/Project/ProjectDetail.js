@@ -27,7 +27,7 @@ const ProjectDetail = () => {
     {
         data?.modules?.map((x,ind)=>(
 
-    <div className="text-gray-700 w-full mb-5">
+    <div className="text-gray-700 w-full mb-5" key={x._id} >
         <div className='w-full px-6' >
             <div type="button" className="flex items-center  justify-between w-full p-5 font-medium text-left text-gray-900 bg-gray-100 border border-b-0 border-gray-200 rounded-t-xl dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800" >
                 <span>{x.moduleName}</span>
@@ -60,10 +60,10 @@ const ProjectDetail = () => {
                             </th>
                         </tr>
                     </thead>
-                    { x?.tasks?.map((item,ind)=>(
-            
                     <tbody>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+                    { x?.tasks?.map((item,ind)=>(
+                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={item._id} >
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {item.taskName}
                             </th>
@@ -92,8 +92,9 @@ const ProjectDetail = () => {
                                 <a className="font-medium"  >{item.completedTime}hr</a>
                             </td>
                         </tr>
-                    </tbody>
                     ))}
+                    </tbody>
+
                 </table>
                 
             </div>

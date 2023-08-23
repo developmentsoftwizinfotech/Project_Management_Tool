@@ -16,12 +16,10 @@ const Tasks = () => {
     <>
     <div className='flex flex-col justify-start items-start ' >
 
-    <p className="text-teal-600 text-2xl pl-6 py-5 ">Project Name</p>
-
             <div className="text-gray-700 w-full mb-5">
                 <div className='w-full px-6' >
                     <div type="button" className="flex items-center  justify-between w-full p-5 font-medium text-left text-gray-900 bg-gray-100 border border-b-0 border-gray-200 rounded-t-xl dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800" >
-                        <span>module name</span>
+                        <span>Tasks</span>
                         {/* <button type="button" onClick={()=>navigate('/addproject')} className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900  bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700   dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                             Edit
                         </button> */}

@@ -43,7 +43,7 @@ const Project = () => {
         <div className='flex items-center justify-center flex-wrap gap-x-5 gap-y-10' >
             {
                 data?.projects?.map((x,ind)=>(
-                    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div key={x._id} className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{x.projectName}</h5>
                         </p>
